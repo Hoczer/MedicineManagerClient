@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Medicine Manager</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" (click)="isMenuCollapsed = !isMenuCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse"[ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item" >
+            <a class="nav-link" (click)="isMenuCollapsed = true" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="isMenuCollapsed = true" href="#">Medicine Cabinet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"(click)="isMenuCollapsed = true">Patients</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="text">
+          <input class="form-control me-2" type="text" placeholder="Login" aria-label="Login" spellcheck="false" data-ms-editor="true">
+		  <input class="form-control me-2" type="text" placeholder="Passward" aria-label="Passward" spellcheck="false" data-ms-editor="true">
+          <button class="btn btn-outline-success" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+ 
