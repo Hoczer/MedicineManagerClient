@@ -21,13 +21,14 @@ export class AccountService {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           this.currentUserSource.next(user);
+          console.log(user);
         }
       })
     );
   }
 
   register(model:any){
-    return this.http.post<RegisterUser>(this.baseUrl+'/account/register',model)
+    return this.http.post<RegisterUser>(this.baseUrl+'/account/register',model).pipe()
     
   }
 

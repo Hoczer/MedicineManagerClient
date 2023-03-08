@@ -1,27 +1,25 @@
 <link rel="stylesheet" href="nav-bar.component.css">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="#">Medicine Manager</a>
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">Medicine Manager</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" (click)="isMenuCollapsed = !isMenuCollapsed">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse"[ngbCollapse]="isMenuCollapsed">
         <ul class="navbar-nav me-auto mb-2 mb-md-0" >
-          <ng-container *ngIf="accountService.currentUser$|async">
-            <li class="nav-item" >
-              <a class="nav-link" (click)="isMenuCollapsed = true" aria-current="page" href="#">Home</a>
+          <ng-container *ngIf="accountService.currentUser$| async">
+            
+            <li class="nav-item">
+              <a class="nav-link" (click)="isMenuCollapsed = true" routerLink="/medicine-cabinet" routerLinkActive="active">Medicine Cabinet</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" (click)="isMenuCollapsed = true" href="#">Medicine Cabinet</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"(click)="isMenuCollapsed = true" href="#">Patients</a>
+              <a class="nav-link"(click)="isMenuCollapsed = true" routerLink="/patients" routerLinkActive="active">Patients</a>
             </li>
           </ng-container>
           
         </ul>
-        <div class="dropdown"*ngIf="accountService.currentUser$| async" dropdown>
-          <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome user</a>
+        <div class="dropdown"*ngIf="(accountService.currentUser$| async) as user " dropdown>
+          <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome {{user.userLogin}}</a>
           <div class="dropdown-menu mt-3"*dropdownMenu>
             <a class="dropdown-item">Edit Profile</a>
             <a class="dropdown-item"(click)="logout()">Logout</a>
@@ -45,7 +43,7 @@
             aria-label="Passward"
             spellcheck="false"
             data-ms-editor="true">
-          <button class="btn btn-outline-success" type="submit">Login</button>
+          <button class="btn btn-secondary" type="submit">Login</button>
         </form>
       </div>
     </div>
